@@ -20,9 +20,12 @@ import { ReportMiddleware } from './middleware/report.middleware';
   ],
   importConfigs: [join(__dirname, './config')],
 })
-export class ContainerLifeCycle {
+export class MainConfiguration {
   @App()
   app: koa.Application;
+
+  @App('bull')
+  bullApp: bull.Application;
 
   async onReady() {
     // add middleware
